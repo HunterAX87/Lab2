@@ -20,6 +20,15 @@ public class EchoClient {
             String receivedMsg = input.readUTF(); // read the reply from the server
 
             System.out.println("Hello, " + receivedMsg);
+
+
+            while(true){
+                String msg1 = scanner.nextLine();
+                output.writeUTF(msg1); // send a message to the server
+                if(msg1.equals("bye")) break;
+                String receivedMsg1 = input.readUTF(); // read the reply from the server
+                System.out.println("Ответ сервера: "+ receivedMsg1);
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
